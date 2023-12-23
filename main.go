@@ -1,12 +1,13 @@
 package main
 
-import "github.com/gofiber/fiber/v2"
+import (
+	"github.com/Optinus/golang-fiber/router"
+	"github.com/gofiber/fiber/v2"
+)
 
 func main() {
 	app := fiber.New()
 
-	app.Get("/", func(c *fiber.Ctx) error {
-		return c.JSON("golang fiber")
-	})
-	app.Listen(":8080")
+	router.SetupRouter(app)
+	app.Listen(":3000")
 }
